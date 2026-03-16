@@ -24,53 +24,42 @@ public class Program
 
     public static void Main()
     {
-        // =======================================================
-        // KORDINAT FULL (Udah dimasukin semua)
-        // =======================================================
-        int excelAmanX = 366; int excelAmanY = 28;     // Area hijau atas Excel
+        // KORDINAT UPDATE
+        int excelAmanX = 472; int excelAmanY = 32;     // Area hijau atas Excel
         
         int webNikX = 1405; int webNikY = 391;         // Kolom NIK Web
         int webTglX = 1383; int webTglY = 469;         // Kolom Tgl Lahir Web
         int webCaptchaX = 1334; int webCaptchaY = 604; // Kolom Captcha
-        int btnCariX = 1591; int btnCariY = 543;       // Tombol Cari Peserta
-        // =======================================================
-
-        // 1. Copy NIK (Posisikan lu udah klik 1 NIK yang putih di Excel sblm di-play)
+        
+        // 1. Copy NIK
         SendKeys.SendWait("^c"); 
         Thread.Sleep(300);
 
-        // 2. Paste NIK ke Web
+        // 2. Paste NIK
         KlikMouse(webNikX, webNikY);
         SendKeys.SendWait("^v");
         Thread.Sleep(300);
 
-        // 3. Aktifin Excel, geser KANAN 4 KALI ke Tanggal Lahir & Copy
+        // 3. Geser Kanan & Copy Tgl Lahir
         KlikMouse(excelAmanX, excelAmanY);
         SendKeys.SendWait("{RIGHT 4}"); 
         Thread.Sleep(300);
         SendKeys.SendWait("^c");
         Thread.Sleep(300);
 
-        // 4. Paste Tanggal Lahir ke Web
+        // 4. Paste Tgl Lahir
         KlikMouse(webTglX, webTglY);
         SendKeys.SendWait("^v");
         Thread.Sleep(300);
 
-        // 5. Aktifin Excel lagi, balikin kursor ke kolom NIK awal (Geser KIRI 4 KALI)
+        // 5. Balikin kursor Excel
         KlikMouse(excelAmanX, excelAmanY);
         SendKeys.SendWait("{LEFT 4}"); 
         Thread.Sleep(100);
 
-        // 6. Klik kolom Captcha di web biar kursornya kelap-kelip siap diketik
+        // 6. Klik kotak Captcha biar kursor kedap-kedip
         KlikMouse(webCaptchaX, webCaptchaY);
-
-        // 7. Pause pake MessageBox (Tunggu lu ngetik Captcha)
-        MessageBox.Show("Silakan ketik Captcha di web sekarang.\nKalau sudah selesai diketik, klik OK di kotak ini.", "Waktunya Isi Captcha!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        // 8. Setelah lu klik OK, script otomatis ngeklik "Cari Peserta"
-        KlikMouse(btnCariX, btnCariY);
         
-        // Jeda 3 detik nunggu web loading
-        Thread.Sleep(3000); 
+        // SCRIPT C# SELESAI SAMPAI SINI
     }
 }
