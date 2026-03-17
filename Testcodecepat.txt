@@ -1,0 +1,96 @@
+{
+  "Name": "AutoDetect_BPJS_SuperFast",
+  "CreationDate": "2026-03-17",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "fast",
+      "Value": "!replayspeed",
+      "Description": "Speed dewa tanpa jeda bawaan"
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "!TIMEOUT_WAIT",
+      "Description": "Batas nunggu dipangkas jadi 1 detik aja"
+    },
+    {
+      "Command": "click",
+      "Target": "id=btnCariPetugas",
+      "Value": "",
+      "Description": "Klik 1"
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div[5]/div/div/div[3]/button[2]",
+      "Value": "",
+      "Description": "Klik 2"
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!errorIgnore",
+      "Description": "Abaikan error kalau Selanjutnya ga ada"
+    },
+    {
+      "Command": "do",
+      "Target": "",
+      "Value": "",
+      "Description": "Mulai Looping"
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//button[contains(text(), 'Selanjutnya')]",
+      "Value": "",
+      "Description": "Nyari Selanjutnya pake xpath (jauh lebih cepat)"
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${!statusOK} == true",
+      "Value": "",
+      "Description": "Kalau BERHASIL"
+    },
+    {
+      "Command": "pause",
+      "Target": "450",
+      "Value": "",
+      "Description": "Jeda 450ms sesuai settingan lu"
+    },
+    {
+      "Command": "else",
+      "Target": "",
+      "Value": "",
+      "Description": "Kalau GAGAL (di page terakhir)"
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//button[contains(text(), 'Simpan')]",
+      "Value": "",
+      "Description": "Klik Simpan pake xpath (biar kenceng)"
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": "Tutup IF"
+    },
+    {
+      "Command": "repeatIf",
+      "Target": "${!statusOK} == true",
+      "Value": "",
+      "Description": "Ulangi kalau berhasil"
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!errorIgnore",
+      "Description": "Balikin settingan error"
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//button[contains(text(), 'Setuju')]",
+      "Value": "",
+      "Description": "Klik Setuju di popup"
+    }
+  ]
+}
