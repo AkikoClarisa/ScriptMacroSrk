@@ -1,0 +1,90 @@
+{
+  "Name": "AutoDetect_BPJS_UltraFast",
+  "CreationDate": "2026-03-17",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "fast",
+      "Value": "!replayspeed",
+      "Description": "Kecepatan maksimal"
+    },
+    {
+      "Command": "click",
+      "Target": "id=btnCariPetugas",
+      "Value": "",
+      "Description": "Klik 1 (Nunggu normal)"
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div[5]/div/div/div[3]/button[2]",
+      "Value": "",
+      "Description": "Klik 2 (Nunggu normal)"
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "!TIMEOUT_WAIT",
+      "Description": "Batas nunggu dipangkas jadi 1 detik aja!"
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!errorIgnore",
+      "Description": "Abaikan error Selanjutnya"
+    },
+    {
+      "Command": "do",
+      "Target": "",
+      "Value": "",
+      "Description": "Mulai Looping tanpa ampun"
+    },
+    {
+      "Command": "click",
+      "Target": "linkText=Selanjutnya",
+      "Value": "",
+      "Description": "Gas hajar Selanjutnya"
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${!statusOK} == false",
+      "Value": "",
+      "Description": "Logika dibalik: KALAU GAGAL klik Selanjutnya"
+    },
+    {
+      "Command": "click",
+      "Target": "linkText=Simpan",
+      "Value": "",
+      "Description": "Berarti ini page terakhir, langsung klik Simpan"
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": "Tutup IF"
+    },
+    {
+      "Command": "repeatIf",
+      "Target": "${!statusOK} == true",
+      "Value": "",
+      "Description": "Ulangi ngebut ke atas kalau tadi BERHASIL"
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!errorIgnore",
+      "Description": "Normalin error lagi"
+    },
+    {
+      "Command": "store",
+      "Target": "10",
+      "Value": "!TIMEOUT_WAIT",
+      "Description": "Normalin kesabaran bot ke 10 detik"
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//button[contains(text(), 'Setuju')]",
+      "Value": "",
+      "Description": "Klik Setuju"
+    }
+  ]
+}
