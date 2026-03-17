@@ -1,6 +1,6 @@
 {
-  "Name": "AutoDetect_BPJS_Final",
-  "CreationDate": "2026-03-17",
+  "Name": "srk",
+  "CreationDate": "2026-3-17",
   "Commands": [
     {
       "Command": "store",
@@ -63,6 +63,12 @@
       "Description": "Tutup IF"
     },
     {
+      "Command": "pause",
+      "Target": "50",
+      "Value": "",
+      "Description": "Jeda 670ms biar web napas dikit"
+    },
+    {
       "Command": "repeatIf",
       "Target": "${!statusOK} == true",
       "Value": "",
@@ -76,9 +82,9 @@
     },
     {
       "Command": "store",
-      "Target": "15",
+      "Target": "4",
       "Value": "!TIMEOUT_WAIT",
-      "Description": "Normalin kesabaran bot ke 15 detik buat loading"
+      "Description": "Normalin kesabaran bot ke 10 detik buat nunggu loading"
     },
     {
       "Command": "click",
@@ -93,10 +99,17 @@
       "Description": "Napas 2 detik nunggu popup ilang dan loading beres"
     },
     {
-      "Command": "click",
-      "Target": "linkText=Halaman Utama",
+      "Command": "clickAndWait",
+      "Target": "id=btnBacktoHome1",
       "Value": "",
-      "Description": "Otomatis balik ke Halaman Utama"
+      "Targets": [
+        "id=btnBacktoHome1",
+        "xpath=//*[@id=\"btnBacktoHome1\"]",
+        "xpath=//input[@id='btnBacktoHome1']",
+        "xpath=//div/div/div[2]/input",
+        "css=#btnBacktoHome1"
+      ],
+      "Description": ""
     }
   ]
 }
