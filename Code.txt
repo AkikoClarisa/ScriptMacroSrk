@@ -1,65 +1,60 @@
-using System;
-using System.Windows.Forms;
-using System.Threading;
-using System.Runtime.InteropServices;
-
-public class Program
-{
-    [DllImport("user32.dll")]
-    static extern bool SetCursorPos(int X, int Y);
-
-    [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
-
-    private const int MOUSEEVENTF_LEFTDOWN = 0x02;
-    private const int MOUSEEVENTF_LEFTUP = 0x04;
-
-    public static void KlikMouse(int x, int y)
     {
-        SetCursorPos(x, y); 
-        Thread.Sleep(100); 
-        mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0); 
-        Thread.Sleep(300); 
-    }
-
-    public static void Main()
+      "Command": "store",
+      "Target": "true",
+      "Value": "!errorIgnore",
+      "Description": "Abaikan error kalau tombol Selanjutnya ga ada"
+    },
     {
-        // KORDINAT UPDATE
-        int excelAmanX = 472; int excelAmanY = 32;     // Area hijau atas Excel
-        
-        int webNikX = 1405; int webNikY = 391;         // Kolom NIK Web
-        int webTglX = 1383; int webTglY = 469;         // Kolom Tgl Lahir Web
-        int webCaptchaX = 1334; int webCaptchaY = 604; // Kolom Captcha
-        
-        // 1. Copy NIK
-        SendKeys.SendWait("^c"); 
-        Thread.Sleep(300);
-
-        // 2. Paste NIK
-        KlikMouse(webNikX, webNikY);
-        SendKeys.SendWait("^v");
-        Thread.Sleep(300);
-
-        // 3. Geser Kanan & Copy Tgl Lahir
-        KlikMouse(excelAmanX, excelAmanY);
-        SendKeys.SendWait("{RIGHT 4}"); 
-        Thread.Sleep(300);
-        SendKeys.SendWait("^c");
-        Thread.Sleep(300);
-
-        // 4. Paste Tgl Lahir
-        KlikMouse(webTglX, webTglY);
-        SendKeys.SendWait("^v");
-        Thread.Sleep(300);
-
-        // 5. Balikin kursor Excel
-        KlikMouse(excelAmanX, excelAmanY);
-        SendKeys.SendWait("{LEFT 4}"); 
-        Thread.Sleep(100);
-
-        // 6. Klik kotak Captcha biar kursor kedap-kedip
-        KlikMouse(webCaptchaX, webCaptchaY);
-        
-        // SCRIPT C# SELESAI SAMPAI SINI
+      "Command": "do",
+      "Target": "",
+      "Value": "",
+      "Description": "Mulai Looping Pagination"
+    },
+    {
+      "Command": "click",
+      "Target": "linkText=Selanjutnya",
+      "Value": "",
+      "Description": "Coba klik Selanjutnya"
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${!statusOK} == true",
+      "Value": "",
+      "Description": "Kalau kliknya BERHASIL (status OK)"
+    },
+    {
+      "Command": "pause",
+      "Target": "1500",
+      "Value": "",
+      "Description": "Jeda 1.5 detik nunggu loading page"
+    },
+    {
+      "Command": "else",
+      "Target": "",
+      "Value": "",
+      "Description": "Kalau kliknya GAGAL (udah di page terakhir)"
+    },
+    {
+      "Command": "click",
+      "Target": "linkText=Simpan",
+      "Value": "",
+      "Description": "Langsung klik Simpan"
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": "Tutup IF"
+    },
+    {
+      "Command": "repeatIf",
+      "Target": "${!statusOK} == true",
+      "Value": "",
+      "Description": "Ulangi ke atas KALAU tadi masih berhasil klik Selanjutnya"
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!errorIgnore",
+      "Description": "Balikin settingan error ke normal"
     }
-}
