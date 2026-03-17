@@ -1,5 +1,5 @@
 {
-  "Name": "AutoDetect_BPJS_Selesai",
+  "Name": "AutoDetect_BPJS_Final",
   "CreationDate": "2026-03-17",
   "Commands": [
     {
@@ -76,9 +76,9 @@
     },
     {
       "Command": "store",
-      "Target": "10",
+      "Target": "15",
       "Value": "!TIMEOUT_WAIT",
-      "Description": "Normalin kesabaran bot ke 10 detik buat nunggu loading"
+      "Description": "Normalin kesabaran bot ke 15 detik buat loading"
     },
     {
       "Command": "click",
@@ -87,8 +87,14 @@
       "Description": "Klik Setuju"
     },
     {
+      "Command": "pause",
+      "Target": "2000",
+      "Value": "",
+      "Description": "Napas 2 detik nunggu popup ilang dan loading beres"
+    },
+    {
       "Command": "click",
-      "Target": "xpath=//*[contains(text(), 'Halaman Utama')]",
+      "Target": "linkText=Halaman Utama",
       "Value": "",
       "Description": "Otomatis balik ke Halaman Utama"
     }
