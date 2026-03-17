@@ -1,72 +1,60 @@
 {
-  "Name": "AutoDetect_BPJS_AntiError",
+  "Name": "AutoDetect_BPJS_Selesai",
   "CreationDate": "2026-03-17",
   "Commands": [
     {
       "Command": "store",
       "Target": "fast",
       "Value": "!replayspeed",
-      "Description": "Speed dewa"
+      "Description": "Kecepatan maksimal"
     },
     {
       "Command": "click",
       "Target": "id=btnCariPetugas",
       "Value": "",
-      "Description": "Klik 1 (Waktu nunggu normal)"
+      "Description": "Klik 1 (Nunggu normal)"
     },
     {
       "Command": "click",
       "Target": "xpath=/html/body/div[5]/div/div/div[3]/button[2]",
       "Value": "",
-      "Description": "Klik 2 (Waktu nunggu normal)"
+      "Description": "Klik 2 (Nunggu normal)"
     },
     {
       "Command": "store",
-      "Target": "2",
+      "Target": "1",
       "Value": "!TIMEOUT_WAIT",
-      "Description": "BARU DISINI kita bikin dia ga sabaran (batas 2 detik)"
+      "Description": "Batas nunggu dipangkas jadi 1 detik aja!"
     },
     {
       "Command": "store",
       "Target": "true",
       "Value": "!errorIgnore",
-      "Description": "Abaikan error"
+      "Description": "Abaikan error Selanjutnya"
     },
     {
       "Command": "do",
       "Target": "",
       "Value": "",
-      "Description": "Mulai Looping"
+      "Description": "Mulai Looping tanpa ampun"
     },
     {
       "Command": "click",
       "Target": "linkText=Selanjutnya",
       "Value": "",
-      "Description": "Coba klik Selanjutnya"
+      "Description": "Gas hajar Selanjutnya"
     },
     {
       "Command": "if_v2",
-      "Target": "${!statusOK} == true",
+      "Target": "${!statusOK} == false",
       "Value": "",
-      "Description": "Kalau BERHASIL"
-    },
-    {
-      "Command": "pause",
-      "Target": "450",
-      "Value": "",
-      "Description": "Jeda 450ms"
-    },
-    {
-      "Command": "else",
-      "Target": "",
-      "Value": "",
-      "Description": "Kalau GAGAL (di page terakhir)"
+      "Description": "Logika dibalik: KALAU GAGAL klik Selanjutnya"
     },
     {
       "Command": "click",
       "Target": "linkText=Simpan",
       "Value": "",
-      "Description": "Langsung klik Simpan"
+      "Description": "Berarti ini page terakhir, langsung klik Simpan"
     },
     {
       "Command": "end",
@@ -78,25 +66,31 @@
       "Command": "repeatIf",
       "Target": "${!statusOK} == true",
       "Value": "",
-      "Description": "Ulangi kalau berhasil"
+      "Description": "Ulangi ngebut ke atas kalau tadi BERHASIL"
     },
     {
       "Command": "store",
       "Target": "false",
       "Value": "!errorIgnore",
-      "Description": "Balikin settingan error"
+      "Description": "Normalin error lagi"
     },
     {
       "Command": "store",
       "Target": "10",
       "Value": "!TIMEOUT_WAIT",
-      "Description": "Balikin kesabaran bot ke normal"
+      "Description": "Normalin kesabaran bot ke 10 detik buat nunggu loading"
     },
     {
       "Command": "click",
       "Target": "xpath=//button[contains(text(), 'Setuju')]",
       "Value": "",
-      "Description": "Klik Setuju di popup"
+      "Description": "Klik Setuju"
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[contains(text(), 'Halaman Utama')]",
+      "Value": "",
+      "Description": "Otomatis balik ke Halaman Utama"
     }
   ]
 }
