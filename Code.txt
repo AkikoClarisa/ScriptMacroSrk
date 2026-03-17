@@ -1,18 +1,30 @@
 {
-  "Name": "AutoDetectSelanjutnya",
+  "Name": "AutoDetectSelanjutnya_Ngebut",
   "CreationDate": "2026-03-17",
   "Commands": [
+    {
+      "Command": "store",
+      "Target": "fast",
+      "Value": "!replayspeed",
+      "Description": "Biar jalan botnya secepat kilat"
+    },
+    {
+      "Command": "store",
+      "Target": "2",
+      "Value": "!TIMEOUT_WAIT",
+      "Description": "Batas nunggu nyari tombol cuma 2 detik"
+    },
     {
       "Command": "click",
       "Target": "id=btnCariPetugas",
       "Value": "",
-      "Description": "Klik 1 (Dari script lu)"
+      "Description": "Klik 1"
     },
     {
       "Command": "click",
       "Target": "xpath=/html/body/div[5]/div/div/div[3]/button[2]",
       "Value": "",
-      "Description": "Klik 2 (Dari script lu)"
+      "Description": "Klik 2"
     },
     {
       "Command": "store",
@@ -24,7 +36,7 @@
       "Command": "do",
       "Target": "",
       "Value": "",
-      "Description": "Mulai Looping Pagination"
+      "Description": "Mulai Looping"
     },
     {
       "Command": "click",
