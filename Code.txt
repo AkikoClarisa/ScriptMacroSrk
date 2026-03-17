@@ -1,5 +1,5 @@
 {
-  "Name": "AutoDetect_BPJS_Ngebut",
+  "Name": "AutoDetect_BPJS_Fix",
   "CreationDate": "2026-03-17",
   "Commands": [
     {
@@ -49,6 +49,12 @@
       "Target": "${!statusOK} == true",
       "Value": "",
       "Description": "Kalau BERHASIL (status OK)"
+    },
+    {
+      "Command": "pause",
+      "Target": "670",
+      "Value": "",
+      "Description": "Jeda 670ms biar web napas dikit"
     },
     {
       "Command": "else",
