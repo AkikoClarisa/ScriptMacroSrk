@@ -1,18 +1,18 @@
 {
-  "Name": "AutoDetectSelanjutnya_Ngebut",
+  "Name": "AutoDetect_BPJS_Ngebut",
   "CreationDate": "2026-03-17",
   "Commands": [
     {
       "Command": "store",
       "Target": "fast",
       "Value": "!replayspeed",
-      "Description": "Biar jalan botnya secepat kilat"
+      "Description": "Speed dewa"
     },
     {
       "Command": "store",
       "Target": "2",
       "Value": "!TIMEOUT_WAIT",
-      "Description": "Batas nunggu nyari tombol cuma 2 detik"
+      "Description": "Batas nunggu 2 detik"
     },
     {
       "Command": "click",
@@ -30,7 +30,7 @@
       "Command": "store",
       "Target": "true",
       "Value": "!errorIgnore",
-      "Description": "Abaikan error kalau tombol Selanjutnya ga ada"
+      "Description": "Abaikan error kalau Selanjutnya ga ada"
     },
     {
       "Command": "do",
@@ -48,25 +48,19 @@
       "Command": "if_v2",
       "Target": "${!statusOK} == true",
       "Value": "",
-      "Description": "Kalau kliknya BERHASIL (status OK)"
-    },
-    {
-      "Command": "pause",
-      "Target": "1500",
-      "Value": "",
-      "Description": "Jeda 1.5 detik nunggu loading page"
+      "Description": "Kalau BERHASIL (status OK)"
     },
     {
       "Command": "else",
       "Target": "",
       "Value": "",
-      "Description": "Kalau kliknya GAGAL (udah di page terakhir)"
+      "Description": "Kalau GAGAL (udah di page terakhir)"
     },
     {
       "Command": "click",
       "Target": "linkText=Simpan",
       "Value": "",
-      "Description": "Langsung klik Simpan"
+      "Description": "Klik Simpan"
     },
     {
       "Command": "end",
@@ -78,13 +72,19 @@
       "Command": "repeatIf",
       "Target": "${!statusOK} == true",
       "Value": "",
-      "Description": "Ulangi ke atas KALAU tadi masih berhasil klik Selanjutnya"
+      "Description": "Ulangi kalau tadi masih klik Selanjutnya"
     },
     {
       "Command": "store",
       "Target": "false",
       "Value": "!errorIgnore",
       "Description": "Balikin settingan error ke normal"
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//button[contains(text(), 'Setuju')]",
+      "Value": "",
+      "Description": "Klik otomatis tombol Setuju di popup"
     }
   ]
 }
