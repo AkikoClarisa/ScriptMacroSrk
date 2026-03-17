@@ -1,36 +1,36 @@
 {
-  "Name": "AutoDetect_BPJS_SuperFast",
+  "Name": "AutoDetect_BPJS_AntiError",
   "CreationDate": "2026-03-17",
   "Commands": [
     {
       "Command": "store",
       "Target": "fast",
       "Value": "!replayspeed",
-      "Description": "Speed dewa tanpa jeda bawaan"
-    },
-    {
-      "Command": "store",
-      "Target": "1",
-      "Value": "!TIMEOUT_WAIT",
-      "Description": "Batas nunggu dipangkas jadi 1 detik aja"
+      "Description": "Speed dewa"
     },
     {
       "Command": "click",
       "Target": "id=btnCariPetugas",
       "Value": "",
-      "Description": "Klik 1"
+      "Description": "Klik 1 (Waktu nunggu normal)"
     },
     {
       "Command": "click",
       "Target": "xpath=/html/body/div[5]/div/div/div[3]/button[2]",
       "Value": "",
-      "Description": "Klik 2"
+      "Description": "Klik 2 (Waktu nunggu normal)"
+    },
+    {
+      "Command": "store",
+      "Target": "2",
+      "Value": "!TIMEOUT_WAIT",
+      "Description": "BARU DISINI kita bikin dia ga sabaran (batas 2 detik)"
     },
     {
       "Command": "store",
       "Target": "true",
       "Value": "!errorIgnore",
-      "Description": "Abaikan error kalau Selanjutnya ga ada"
+      "Description": "Abaikan error"
     },
     {
       "Command": "do",
@@ -40,9 +40,9 @@
     },
     {
       "Command": "click",
-      "Target": "xpath=//button[contains(text(), 'Selanjutnya')]",
+      "Target": "linkText=Selanjutnya",
       "Value": "",
-      "Description": "Nyari Selanjutnya pake xpath (jauh lebih cepat)"
+      "Description": "Coba klik Selanjutnya"
     },
     {
       "Command": "if_v2",
@@ -54,7 +54,7 @@
       "Command": "pause",
       "Target": "450",
       "Value": "",
-      "Description": "Jeda 450ms sesuai settingan lu"
+      "Description": "Jeda 450ms"
     },
     {
       "Command": "else",
@@ -64,9 +64,9 @@
     },
     {
       "Command": "click",
-      "Target": "xpath=//button[contains(text(), 'Simpan')]",
+      "Target": "linkText=Simpan",
       "Value": "",
-      "Description": "Klik Simpan pake xpath (biar kenceng)"
+      "Description": "Langsung klik Simpan"
     },
     {
       "Command": "end",
@@ -85,6 +85,12 @@
       "Target": "false",
       "Value": "!errorIgnore",
       "Description": "Balikin settingan error"
+    },
+    {
+      "Command": "store",
+      "Target": "10",
+      "Value": "!TIMEOUT_WAIT",
+      "Description": "Balikin kesabaran bot ke normal"
     },
     {
       "Command": "click",
