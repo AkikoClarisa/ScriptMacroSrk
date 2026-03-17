@@ -1,3 +1,19 @@
+{
+  "Name": "AutoDetectSelanjutnya",
+  "CreationDate": "2026-03-17",
+  "Commands": [
+    {
+      "Command": "click",
+      "Target": "id=btnCariPetugas",
+      "Value": "",
+      "Description": "Klik 1 (Dari script lu)"
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div[5]/div/div/div[3]/button[2]",
+      "Value": "",
+      "Description": "Klik 2 (Dari script lu)"
+    },
     {
       "Command": "store",
       "Target": "true",
@@ -58,3 +74,5 @@
       "Value": "!errorIgnore",
       "Description": "Balikin settingan error ke normal"
     }
+  ]
+}
